@@ -5,10 +5,10 @@ const Home = () => {
     return (
         <div>
             <Helmet>
-                <title>Home Page helm</title>
-                <meta name="home page" content="Helmet application" />
+                <title>About Page helm</title>
+                <meta name="about page" content="Helmet application" />
             </Helmet>
-            <h1>Whaat up homies !</h1>
+            <h1>Whaat up about !</h1>
             <button onClick={()=>console.log('You clicked the button')}>Button</button>
         </div>
     )
