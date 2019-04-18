@@ -1,11 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Home from './components/Home';
-import {BrowserRouter} from 'react-router-dom';
-import Routes from './Routes'
+import React from "react";
+import ReactDOM from "react-dom";
+import Home from "./components/Home";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./Routes";
+
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { Provider } from "react-redux";
+
+const store = createStore(reducers, {}, applyMiddleware(thunk));
 
 ReactDOM.hydrate(
+  <Provider store={store}>
     <BrowserRouter>
-        <Routes />
+      <Routes />
     </BrowserRouter>
-    , document.getElementById("root"));
+  </Provider>,
+  document.getElementById("root")
+);

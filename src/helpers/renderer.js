@@ -1,19 +1,22 @@
-import React from 'react';
-import {renderToString} from 'react-dom/server';
-import {StaticRouter} from 'react-router-dom';
-import Routes from '../client/Routes'
-import {Helmet} from 'react-helmet';
- 
-export default (req)=>{
-    const content = renderToString(
-        <StaticRouter location={req.path} context={{}}>
-            <Routes />
-        </StaticRouter>
-    );
+import React from "react";
+import { renderToString } from "react-dom/server";
+import { StaticRouter } from "react-router-dom";
+import Routes from "../client/Routes";
+import { Helmet } from "react-helmet";
+import { Provider } from "react-redux";
 
-    const helmet = Helmet.renderStatic();
+export default (req, store) => {
+  const content = renderToString(
+    <Provider store={store}>
+      <StaticRouter location={req.path} context={{}}>
+        <Routes />
+      </StaticRouter>
+    </Provider>
+  );
 
-    return `
+  const helmet = Helmet.renderStatic();
+
+  return `
     <html>
         <head>
             ${helmet.title.toString()}
@@ -24,5 +27,5 @@ export default (req)=>{
             <script src="bundle.js"></script>
         </body>
     </html>
-    `
-}
+    `;
+};
