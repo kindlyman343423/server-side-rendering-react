@@ -5,6 +5,8 @@ import Routes from "../client/Routes";
 import { Helmet } from "react-helmet";
 import { Provider } from "react-redux";
 
+import serialize from 'serialize-javascript';
+
 import {renderRoutes} from 'react-router-config';
 
 export default (req, store) => {
@@ -28,6 +30,9 @@ export default (req, store) => {
         </head>
         <body>
             <div id="root">${content}</div>
+            <script>
+              window.INITIAL_STATE = ${serialize(store.getState())}
+            </script>
             <script src="bundle.js"></script>
         </body>
     </html>
