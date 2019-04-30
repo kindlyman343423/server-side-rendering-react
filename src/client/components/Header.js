@@ -15,6 +15,7 @@ const Header = ({auth}) => {
         <div>
           <Link to="/users">Users</Link>
           <Link to="/admins">Admins</Link>
+          <Link to="/properties">Properties</Link>
           {authButton}
         </div>
       </div>

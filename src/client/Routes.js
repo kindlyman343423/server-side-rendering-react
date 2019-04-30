@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom';
 import App from './App';
 import Home from './pages/HomePage'
 import UsersList from './pages/UsersListPage';
+import PropertiesList from './pages/PropertiesList';
 
 // export default () => {
 //     return (
@@ -25,6 +26,10 @@ export default [
             {
                 ...UsersList,
                 path: '/users',
+            },
+            {
+                ...PropertiesList,
+                path: '/properties'
             }
         ]
     }
