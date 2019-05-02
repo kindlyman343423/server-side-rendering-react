@@ -1,6 +1,7 @@
 export const FETCH_USERS = 'fetch_users';
 export const FETCH_PROPERTIES = 'fetch_properties';
 export const FETCH_CURRENT_USER = 'fetch_current_user';
+export const LOGIN_USER = 'login_user';
 
 import axios from 'axios';
 
@@ -33,5 +34,21 @@ export const fetchProperties = () => async (dispatch, getState, api) => {
  dispatch({
   type: FETCH_PROPERTIES,
   payload: properties.data
+ });
+}
+
+export const loginUser = (data) => async (dispatch, getState, api) => {
+ console.log(data);
+ const user = await axios.post('https://www.basobaas.com/api/users/login',data, {
+  headers: {
+   Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjIxNzc0NTI3OTksImlhdCI6MTUxNjAyMjk5OSwiaXNzIjoiQmFzb2JhYXMgTmVwYWwiLCJuYmYiOjE1MTYwMjI5OTksImp0aSI6Ikd1ZXN0VG9rZW4iLCJzdWIiOjB9.QikmNgBYmqch5HREGFEpUs4Xk3x-zFfDg5mhYJO7jM8'
+  }
+ });
+
+ console.log(user);
+
+ dispatch({
+  type: LOGIN_USER,
+  payload: user.data.data.access_token
  });
 }

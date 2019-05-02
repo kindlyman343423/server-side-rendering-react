@@ -4,6 +4,7 @@ import App from './App';
 import Home from './pages/HomePage'
 import UsersList from './pages/UsersListPage';
 import PropertiesList from './pages/PropertiesList';
+import LoginPage from './pages/LoginPage';
 
 // export default () => {
 //     return (
@@ -30,6 +31,10 @@ export default [
             {
                 ...PropertiesList,
                 path: '/properties'
+            },
+            {
+                ...LoginPage,
+                path: '/login-page'
             }
         ]
     }
