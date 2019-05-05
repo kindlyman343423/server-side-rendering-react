@@ -5,6 +5,12 @@ export const LOGIN_USER = 'login_user';
 
 import axios from 'axios';
 
+import cookie from 'universal-cookie';
+import CookieConfig from '../../helpers/cookieConfig';
+
+CookieConfig();
+const Cookies = new cookie();
+
 export const fetchUsers = () => async (dispatch, getState, api) =>{
  console.log(api)
  const users = await api.get('/users');
@@ -27,7 +33,7 @@ export const fetchCurrentUser = () => async (dispatch, getState, api) => {
 export const fetchProperties = () => async (dispatch, getState, api) => {
  const properties = await axios.get('https://www.basobaas.com/api/properties', {
   headers: {
-   Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjIxNzc0NTI3OTksImlhdCI6MTUxNjAyMjk5OSwiaXNzIjoiQmFzb2JhYXMgTmVwYWwiLCJuYmYiOjE1MTYwMjI5OTksImp0aSI6Ikd1ZXN0VG9rZW4iLCJzdWIiOjB9.QikmNgBYmqch5HREGFEpUs4Xk3x-zFfDg5mhYJO7jM8'
+   Authorization: `Bearer ${Cookies.get('token')}`
   }
  });
 
@@ -41,11 +47,12 @@ export const loginUser = (data) => async (dispatch, getState, api) => {
  console.log(data);
  const user = await axios.post('https://www.basobaas.com/api/users/login',data, {
   headers: {
-   Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjIxNzc0NTI3OTksImlhdCI6MTUxNjAyMjk5OSwiaXNzIjoiQmFzb2JhYXMgTmVwYWwiLCJuYmYiOjE1MTYwMjI5OTksImp0aSI6Ikd1ZXN0VG9rZW4iLCJzdWIiOjB9.QikmNgBYmqch5HREGFEpUs4Xk3x-zFfDg5mhYJO7jM8'
+      Authorization: `Bearer ${Cookies.get('token')}`
   }
  });
 
- console.log(user);
+ console.log("token",user.data.data.access_token)
+ Cookies.set('token', `${user.data.data.access_token}`);
 
  dispatch({
   type: LOGIN_USER,
