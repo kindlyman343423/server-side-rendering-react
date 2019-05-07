@@ -2271,11 +2271,10 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              console.log(api);
-              _context.next = 3;
+              _context.next = 2;
               return api.get('/users');
 
-            case 3:
+            case 2:
               users = _context.sent;
 
 
@@ -2284,7 +2283,7 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
                 payload: users
               });
 
-            case 5:
+            case 4:
             case 'end':
               return _context.stop();
           }
@@ -2363,7 +2362,7 @@ var fetchProperties = exports.fetchProperties = function fetchProperties() {
               _context3.prev = 7;
               _context3.t0 = _context3['catch'](0);
 
-              console.log("Errpr", Cookies.get('token'));
+              console.log("Error", Cookies.get('token'));
 
             case 10:
             case 'end':
@@ -2387,19 +2386,17 @@ var loginUser = exports.loginUser = function loginUser(data) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              console.log(data);
-              _context4.next = 3;
+              _context4.next = 2;
               return _axios2.default.post('https://www.basobaas.com/api/users/login', data, {
                 headers: {
                   Authorization: 'Bearer ' + Cookies.get('token')
                 }
               });
 
-            case 3:
+            case 2:
               user = _context4.sent;
 
 
-              console.log("token", user.data.data.access_token);
               Cookies.set('token', '' + user.data.data.access_token);
 
               dispatch({
@@ -2407,7 +2404,7 @@ var loginUser = exports.loginUser = function loginUser(data) {
                 payload: user.data.data.access_token
               });
 
-            case 7:
+            case 5:
             case 'end':
               return _context4.stop();
           }
@@ -6358,7 +6355,11 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactHelmet = __webpack_require__(407);
+var _Button = __webpack_require__(499);
+
+var _Helmet = __webpack_require__(500);
+
+var _Helmet2 = _interopRequireDefault(_Helmet);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6366,17 +6367,27 @@ var Home = function Home() {
     return _react2.default.createElement(
         'div',
         null,
+        _react2.default.createElement(_Helmet2.default, {
+            description: 'Want to buy, sell, rent or invest on a real estate property? Explore our list of real estate properties (houses, apartments, lands), Basobaas agents always at your service.',
+            title: 'Trusted real estate bazar in Nepal | Basobaas',
+            image: 'https://basobaas.com/images/bg.jpg',
+            url: 'https://basobaas.com',
+            chatScriptUrl: 'https://widget.manychat.com/934957239853993.js'
+        }),
         _react2.default.createElement(
             'h1',
             null,
             'Whaat up homies !'
         ),
         _react2.default.createElement(
-            'button',
-            { onClick: function onClick() {
-                    return console.log('You clicked the button');
-                } },
-            'Button'
+            _Button.Button,
+            { classBtn: 'primary-btn' },
+            'Primary Button'
+        ),
+        _react2.default.createElement(
+            _Button.Label,
+            { classLabel: 'success-label' },
+            'Label'
         )
     );
 };
@@ -41260,6 +41271,157 @@ exports.default = function () {
       return state;
   }
 };
+
+/***/ }),
+/* 499 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Label = exports.Button = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Button = exports.Button = function (_Component) {
+    _inherits(Button, _Component);
+
+    function Button() {
+        _classCallCheck(this, Button);
+
+        return _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).apply(this, arguments));
+    }
+
+    _createClass(Button, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "button",
+                { className: "btn " + this.props.classBtn },
+                this.props.children
+            );
+        }
+    }]);
+
+    return Button;
+}(_react.Component);
+
+var Label = exports.Label = function (_Component2) {
+    _inherits(Label, _Component2);
+
+    function Label() {
+        _classCallCheck(this, Label);
+
+        return _possibleConstructorReturn(this, (Label.__proto__ || Object.getPrototypeOf(Label)).apply(this, arguments));
+    }
+
+    _createClass(Label, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "span",
+                { className: "label " + this.props.classLabel },
+                this.props.children
+            );
+        }
+    }]);
+
+    return Label;
+}(_react.Component);
+
+/***/ }),
+/* 500 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactHelmet = __webpack_require__(407);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HelmetComp = function (_Component) {
+    _inherits(HelmetComp, _Component);
+
+    function HelmetComp() {
+        _classCallCheck(this, HelmetComp);
+
+        return _possibleConstructorReturn(this, (HelmetComp.__proto__ || Object.getPrototypeOf(HelmetComp)).apply(this, arguments));
+    }
+
+    _createClass(HelmetComp, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                _reactHelmet.Helmet,
+                null,
+                _react2.default.createElement(
+                    'title',
+                    null,
+                    this.props.title
+                ),
+                _react2.default.createElement('meta', { name: 'description', content: this.props.description }),
+                _react2.default.createElement('meta', { charSet: 'UTF-8' }),
+                _react2.default.createElement('meta', { name: 'viewport', content: 'width=device-width, initial-scale = 1.0, user-scalable = no' }),
+                _react2.default.createElement('meta', { name: 'theme-color', content: '#0976dc' }),
+                _react2.default.createElement('meta', { name: 'robots', content: 'index,follow' }),
+                _react2.default.createElement('meta', { name: 'googlebot', content: 'index,follow' }),
+                _react2.default.createElement('meta', { 'http-equiv': 'Content-Type', content: 'text/html; charset=utf-8' }),
+                _react2.default.createElement('meta', { property: 'og:url', content: this.props.url }),
+                _react2.default.createElement('meta', { property: 'og:title', content: this.props.title || '' }),
+                _react2.default.createElement('meta', { property: 'og:locale', content: 'en_US' }),
+                _react2.default.createElement('meta', { property: 'og:type', content: 'article' }),
+                _react2.default.createElement('meta', { property: 'og:site-name', content: 'BASOBAAS' }),
+                _react2.default.createElement('meta', { property: 'og:description', content: this.props.description }),
+                _react2.default.createElement('meta', { name: 'twitter:title', content: this.props.title || '' }),
+                _react2.default.createElement('meta', { name: 'twitter:site', content: this.props.url }),
+                _react2.default.createElement('meta', { name: 'twitter:card', content: 'summary_large_image' }),
+                _react2.default.createElement('meta', { name: 'twitter:image', content: this.props.image }),
+                _react2.default.createElement('meta', { name: 'twitter:description', content: this.props.description }),
+                _react2.default.createElement('meta', { property: 'og:image', content: this.props.image }),
+                _react2.default.createElement('meta', { property: 'og:image:width', content: '1200' }),
+                _react2.default.createElement('meta', { property: 'og:image:height', content: '630' }),
+                _react2.default.createElement('link', { rel: 'icon', href: '/images/favicon.png' }),
+                _react2.default.createElement('script', { src: this.props.chatScriptUrl, async: 'async' })
+            );
+        }
+    }]);
+
+    return HelmetComp;
+}(_react.Component);
+
+exports.default = HelmetComp;
 
 /***/ })
 /******/ ]);
