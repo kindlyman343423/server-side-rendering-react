@@ -9,13 +9,13 @@ import Routes from "./client/Routes";
 import proxy from 'express-http-proxy';
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 app.use(express.static("public"));
 
 app.use("/api", proxy("http://react-ssr-api.herokuapp.com", {
     proxyReqOptDecorator(opts){
-        opts.headers['x-forwarded-host'] = "localhost:3000";
+        opts.headers['x-forwarded-host'] = "localhost:3001";
         return opts;
     }
 })
