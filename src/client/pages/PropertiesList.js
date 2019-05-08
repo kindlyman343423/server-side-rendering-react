@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchProperties } from "../actions";
-import axios from 'axios';
 
 class PropertiesList extends Component {
   componentDidMount() {
