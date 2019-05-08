@@ -15,6 +15,7 @@ let base_url = "https://www.basobaas.com/api"
 export const fetchUsers = () => async (dispatch, getState, api) =>{
  const users = await api.get('/users');
 
+
  dispatch({
   type: FETCH_USERS,
   payload: users
@@ -50,26 +51,28 @@ export const fetchAreas = () => async (dispatch, getState, api) =>{
 }
 
 export const fetchProperties = () => async (dispatch, getState, api) => {
-    try{
-        const properties = await axios.get(base_url+'/properties', {
-            headers: {
+ try{
+    const properties = await axios.get('https://www.basobaas.com/api/properties', {
+        headers: {
             Authorization: `Bearer ${Cookies.get('token') || guest_token}`
-            }
-        });
-        
-        dispatch({
-            type: FETCH_PROPERTIES,
-            payload: properties.data
-        });
-    }catch(err){
-        console.log("Error", Cookies.get('token'))
-    }
+        }
+       });
+
+    console.log(properties.data);
+      
+       dispatch({
+        type: FETCH_PROPERTIES,
+        payload: properties.data
+       });
+ }catch(err){
+     console.log("Errpr", err)
+ }
 }
 
 export const loginUser = (data) => async (dispatch, getState, api) => {
  const user = await axios.post(base_url+'/users/login',data, {
   headers: {
-      Authorization: `Bearer ${Cookies.get('token')}`
+      Authorization: `Bearer ${Cookies.get('token') || guest_token}`
   }
  });
 

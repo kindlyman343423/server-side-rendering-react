@@ -2235,7 +2235,7 @@ module.exports = invariant;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.loginUser = exports.fetchProperties = exports.fetchAreas = exports.fetchCurrentUser = exports.fetchUsers = exports.LOGIN_USER = exports.FETCH_CURRENT_USER = exports.FETCH_PROPERTIES = exports.FETCH_USERS = undefined;
 
@@ -2265,206 +2265,208 @@ var Cookies = new _universalCookie2.default();
 var base_url = "https://www.basobaas.com/api";
 
 var fetchUsers = exports.fetchUsers = function fetchUsers() {
-    return function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch, getState, api) {
-            var users;
-            return regeneratorRuntime.wrap(function _callee$(_context) {
-                while (1) {
-                    switch (_context.prev = _context.next) {
-                        case 0:
-                            _context.next = 2;
-                            return api.get('/users');
+  return function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(dispatch, getState, api) {
+      var users;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return api.get('/users');
 
-                        case 2:
-                            users = _context.sent;
+            case 2:
+              users = _context.sent;
 
 
-                            dispatch({
-                                type: FETCH_USERS,
-                                payload: users
-                            });
+              dispatch({
+                type: FETCH_USERS,
+                payload: users
+              });
 
-                        case 4:
-                        case 'end':
-                            return _context.stop();
-                    }
-                }
-            }, _callee, undefined);
-        }));
+            case 4:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, undefined);
+    }));
 
-        return function (_x, _x2, _x3) {
-            return _ref.apply(this, arguments);
-        };
-    }();
+    return function (_x, _x2, _x3) {
+      return _ref.apply(this, arguments);
+    };
+  }();
 };
 
 var fetchCurrentUser = exports.fetchCurrentUser = function fetchCurrentUser() {
-    return function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch, getState, api) {
-            var user;
-            return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                while (1) {
-                    switch (_context2.prev = _context2.next) {
-                        case 0:
-                            _context2.next = 2;
-                            return api.get('/current_user');
+  return function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch, getState, api) {
+      var user;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return api.get('/current_user');
 
-                        case 2:
-                            user = _context2.sent;
+            case 2:
+              user = _context2.sent;
 
 
-                            dispatch({
-                                type: FETCH_CURRENT_USER,
-                                payload: user
-                            });
+              dispatch({
+                type: FETCH_CURRENT_USER,
+                payload: user
+              });
 
-                        case 4:
-                        case 'end':
-                            return _context2.stop();
-                    }
-                }
-            }, _callee2, undefined);
-        }));
+            case 4:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, _callee2, undefined);
+    }));
 
-        return function (_x4, _x5, _x6) {
-            return _ref2.apply(this, arguments);
-        };
-    }();
+    return function (_x4, _x5, _x6) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
 };
 
 //areas
 var fetchAreas = exports.fetchAreas = function fetchAreas() {
-    return function () {
-        var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dispatch, getState, api) {
-            var areas;
-            return regeneratorRuntime.wrap(function _callee3$(_context3) {
-                while (1) {
-                    switch (_context3.prev = _context3.next) {
-                        case 0:
-                            _context3.prev = 0;
-                            _context3.next = 3;
-                            return _axios2.default.get(base_url + '/areas', {
-                                headers: {
-                                    Authorization: 'Bearer ' + (Cookies.get('token') || guest_token)
-                                }
-                            });
-
-                        case 3:
-                            areas = _context3.sent;
-
-
-                            dispatch({
-                                type: FETCH_AREAS,
-                                payload: areas.data
-                            });
-                            _context3.next = 10;
-                            break;
-
-                        case 7:
-                            _context3.prev = 7;
-                            _context3.t0 = _context3['catch'](0);
-
-                            console.log("Error", Cookies.get('token'));
-
-                        case 10:
-                        case 'end':
-                            return _context3.stop();
-                    }
+  return function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(dispatch, getState, api) {
+      var areas;
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _axios2.default.get(base_url + '/areas', {
+                headers: {
+                  Authorization: 'Bearer ' + (Cookies.get('token') || guest_token)
                 }
-            }, _callee3, undefined, [[0, 7]]);
-        }));
+              });
 
-        return function (_x7, _x8, _x9) {
-            return _ref3.apply(this, arguments);
-        };
-    }();
+            case 3:
+              areas = _context3.sent;
+
+
+              dispatch({
+                type: FETCH_AREAS,
+                payload: areas.data
+              });
+              _context3.next = 10;
+              break;
+
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3['catch'](0);
+
+              console.log("Error", Cookies.get('token'));
+
+            case 10:
+            case 'end':
+              return _context3.stop();
+          }
+        }
+      }, _callee3, undefined, [[0, 7]]);
+    }));
+
+    return function (_x7, _x8, _x9) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
 };
 
 var fetchProperties = exports.fetchProperties = function fetchProperties() {
-    return function () {
-        var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(dispatch, getState, api) {
-            var properties;
-            return regeneratorRuntime.wrap(function _callee4$(_context4) {
-                while (1) {
-                    switch (_context4.prev = _context4.next) {
-                        case 0:
-                            _context4.prev = 0;
-                            _context4.next = 3;
-                            return _axios2.default.get(base_url + '/properties', {
-                                headers: {
-                                    Authorization: 'Bearer ' + (Cookies.get('token') || guest_token)
-                                }
-                            });
-
-                        case 3:
-                            properties = _context4.sent;
-
-
-                            dispatch({
-                                type: FETCH_PROPERTIES,
-                                payload: properties.data
-                            });
-                            _context4.next = 10;
-                            break;
-
-                        case 7:
-                            _context4.prev = 7;
-                            _context4.t0 = _context4['catch'](0);
-
-                            console.log("Error", Cookies.get('token'));
-
-                        case 10:
-                        case 'end':
-                            return _context4.stop();
-                    }
+  return function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(dispatch, getState, api) {
+      var properties;
+      return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.prev = 0;
+              _context4.next = 3;
+              return _axios2.default.get('https://www.basobaas.com/api/properties', {
+                headers: {
+                  Authorization: 'Bearer ' + (Cookies.get('token') || guest_token)
                 }
-            }, _callee4, undefined, [[0, 7]]);
-        }));
+              });
 
-        return function (_x10, _x11, _x12) {
-            return _ref4.apply(this, arguments);
-        };
-    }();
+            case 3:
+              properties = _context4.sent;
+
+
+              console.log(properties.data);
+
+              dispatch({
+                type: FETCH_PROPERTIES,
+                payload: properties.data
+              });
+              _context4.next = 11;
+              break;
+
+            case 8:
+              _context4.prev = 8;
+              _context4.t0 = _context4['catch'](0);
+
+              console.log("Errpr", _context4.t0);
+
+            case 11:
+            case 'end':
+              return _context4.stop();
+          }
+        }
+      }, _callee4, undefined, [[0, 8]]);
+    }));
+
+    return function (_x10, _x11, _x12) {
+      return _ref4.apply(this, arguments);
+    };
+  }();
 };
 
 var loginUser = exports.loginUser = function loginUser(data) {
-    return function () {
-        var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(dispatch, getState, api) {
-            var user;
-            return regeneratorRuntime.wrap(function _callee5$(_context5) {
-                while (1) {
-                    switch (_context5.prev = _context5.next) {
-                        case 0:
-                            _context5.next = 2;
-                            return _axios2.default.post(base_url + '/users/login', data, {
-                                headers: {
-                                    Authorization: 'Bearer ' + Cookies.get('token')
-                                }
-                            });
-
-                        case 2:
-                            user = _context5.sent;
-
-
-                            Cookies.set('token', '' + user.data.data.access_token);
-
-                            dispatch({
-                                type: LOGIN_USER,
-                                payload: user.data.data.access_token
-                            });
-
-                        case 5:
-                        case 'end':
-                            return _context5.stop();
-                    }
+  return function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(dispatch, getState, api) {
+      var user;
+      return regeneratorRuntime.wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.next = 2;
+              return _axios2.default.post(base_url + '/users/login', data, {
+                headers: {
+                  Authorization: 'Bearer ' + (Cookies.get('token') || guest_token)
                 }
-            }, _callee5, undefined);
-        }));
+              });
 
-        return function (_x13, _x14, _x15) {
-            return _ref5.apply(this, arguments);
-        };
-    }();
+            case 2:
+              user = _context5.sent;
+
+
+              Cookies.set('token', '' + user.data.data.access_token);
+
+              dispatch({
+                type: LOGIN_USER,
+                payload: user.data.data.access_token
+              });
+
+            case 5:
+            case 'end':
+              return _context5.stop();
+          }
+        }
+      }, _callee5, undefined);
+    }));
+
+    return function (_x13, _x14, _x15) {
+      return _ref5.apply(this, arguments);
+    };
+  }();
 };
 
 /***/ }),
@@ -38339,11 +38341,8 @@ var App = function App(_ref) {
   );
 };
 exports.default = {
-  component: App,
-  loadData: function loadData(_ref2) {
-    var dispatch = _ref2.dispatch;
-    return dispatch((0, _actions.fetchCurrentUser)());
-  }
+  component: App
+  // loadData: ({dispatch}) => dispatch(fetchCurrentUser())
 };
 
 /***/ }),
