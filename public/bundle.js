@@ -2271,11 +2271,10 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              console.log(api);
-              _context.next = 3;
+              _context.next = 2;
               return api.get('/users');
 
-            case 3:
+            case 2:
               users = _context.sent;
 
 
@@ -2284,7 +2283,7 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
                 payload: users
               });
 
-            case 5:
+            case 4:
             case 'end':
               return _context.stop();
           }
@@ -2352,25 +2351,27 @@ var fetchProperties = exports.fetchProperties = function fetchProperties() {
               properties = _context3.sent;
 
 
+              console.log(properties.data);
+
               dispatch({
                 type: FETCH_PROPERTIES,
                 payload: properties.data
               });
-              _context3.next = 10;
+              _context3.next = 11;
               break;
 
-            case 7:
-              _context3.prev = 7;
+            case 8:
+              _context3.prev = 8;
               _context3.t0 = _context3['catch'](0);
 
-              console.log("Errpr", Cookies.get('token'));
+              console.log("Errpr", _context3.t0);
 
-            case 10:
+            case 11:
             case 'end':
               return _context3.stop();
           }
         }
-      }, _callee3, undefined, [[0, 7]]);
+      }, _callee3, undefined, [[0, 8]]);
     }));
 
     return function (_x7, _x8, _x9) {
@@ -2391,7 +2392,7 @@ var loginUser = exports.loginUser = function loginUser(data) {
               _context4.next = 3;
               return _axios2.default.post('https://www.basobaas.com/api/users/login', data, {
                 headers: {
-                  Authorization: 'Bearer ' + Cookies.get('token')
+                  Authorization: 'Bearer ' + (Cookies.get('token') || guest_token)
                 }
               });
 
@@ -38114,11 +38115,8 @@ var App = function App(_ref) {
   );
 };
 exports.default = {
-  component: App,
-  loadData: function loadData(_ref2) {
-    var dispatch = _ref2.dispatch;
-    return dispatch((0, _actions.fetchCurrentUser)());
-  }
+  component: App
+  // loadData: ({dispatch}) => dispatch(fetchCurrentUser())
 };
 
 /***/ }),

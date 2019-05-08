@@ -12,8 +12,8 @@ let guest_token = CookieConfig();
 const Cookies = new cookie();
 
 export const fetchUsers = () => async (dispatch, getState, api) =>{
- console.log(api)
  const users = await api.get('/users');
+
 
  dispatch({
   type: FETCH_USERS,
@@ -34,16 +34,18 @@ export const fetchProperties = () => async (dispatch, getState, api) => {
  try{
     const properties = await axios.get('https://www.basobaas.com/api/properties', {
         headers: {
-         Authorization: `Bearer ${Cookies.get('token') || guest_token}`
+            Authorization: `Bearer ${Cookies.get('token') || guest_token}`
         }
        });
+
+    console.log(properties.data);
       
        dispatch({
         type: FETCH_PROPERTIES,
         payload: properties.data
        });
  }catch(err){
-     console.log("Errpr", Cookies.get('token'))
+     console.log("Errpr", err)
  }
 }
 
@@ -51,7 +53,7 @@ export const loginUser = (data) => async (dispatch, getState, api) => {
  console.log(data);
  const user = await axios.post('https://www.basobaas.com/api/users/login',data, {
   headers: {
-      Authorization: `Bearer ${Cookies.get('token')}`
+      Authorization: `Bearer ${Cookies.get('token') || guest_token}`
   }
  });
 

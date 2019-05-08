@@ -13,7 +13,8 @@ const PORT = 3001;
 
 app.use(express.static("public"));
 
-app.use("/api", proxy("http://react-ssr-api.herokuapp.com", {
+app.use("/api", proxy("https://www.basobaas.com/api", {
+// app.use("/api", proxy("https://jsonplaceholder.typicode.com", {
     proxyReqOptDecorator(opts){
         opts.headers['x-forwarded-host'] = "localhost:3001";
         return opts;
