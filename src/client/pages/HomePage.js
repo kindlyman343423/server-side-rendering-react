@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Label} from '../components/Button'
+import {PrimaryButton, Label} from '../components/Button'
 import Helmet from '../components/Helmet'
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
                 chatScriptUrl = "https://widget.manychat.com/934957239853993.js"
                 />
             <h1>Whaat up homies !</h1>
-            <Button classBtn="primary-btn">Primary Button</Button>
+            <PrimaryButton>Primary Button</PrimaryButton>
             <Label classLabel="success-label">Label</Label>
         </div>
     )

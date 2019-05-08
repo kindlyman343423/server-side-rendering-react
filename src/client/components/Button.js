@@ -1,9 +1,17 @@
 import React, {Component} from 'react'
 
-export class Button extends Component{
+export class PrimaryButton extends Component{
     render(){
         return(
-            <button className={"btn "+this.props.classBtn}>{this.props.children}</button>
+            <button className="btn primary-btn">{this.props.children}</button>
+        )
+    }
+}
+
+export class SuccessButton extends Component{
+    render(){
+        return(
+            <button className="btn secondary-btn">{this.props.children}</button>
         )
     }
 }
