@@ -6489,11 +6489,11 @@ var Home = function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.dispatch((0, _actions.fetchCategories)());
+      this.props.dispatch((0, _actions.fetchAreas)());
     }
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props.categories);
       return _react2.default.createElement(
         "div",
         null,
@@ -6528,11 +6528,29 @@ var Home = function (_Component) {
         _react2.default.createElement(
           "ul",
           null,
-          this.props.categories.map(function (category, i) {
+          this.props.categories.map(function (category) {
             return _react2.default.createElement(
               "li",
-              { key: i },
+              { key: category.id },
               category.title
+            );
+          })
+        ),
+        _react2.default.createElement("br", null),
+        _react2.default.createElement(
+          "h2",
+          null,
+          "Areas"
+        ),
+        _react2.default.createElement(
+          "ul",
+          null,
+          this.props.areas.map(function (area, i) {
+            if (i > 10) return;
+            return _react2.default.createElement(
+              "li",
+              { key: area.id },
+              area.name
             );
           })
         )
@@ -6544,11 +6562,11 @@ var Home = function (_Component) {
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-  return { categories: state.categories };
+  return { categories: state.categories, areas: state.areas };
 };
 
 function loadData(store) {
-  return store.dispatch((0, _actions.fetchCategories)());
+  return store.dispatch((0, _actions.fetchCategories)(), (0, _actions.fetchAreas)());
 }
 
 exports.loadData = loadData;
@@ -41506,12 +41524,17 @@ var _categoriesReducer = __webpack_require__(501);
 
 var _categoriesReducer2 = _interopRequireDefault(_categoriesReducer);
 
+var _areasReducer = __webpack_require__(502);
+
+var _areasReducer2 = _interopRequireDefault(_areasReducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
   users: _usersReducer2.default,
   auth: _authReducer2.default,
   properties: _propertiesReducer2.default,
+  areas: _areasReducer2.default,
   categories: _categoriesReducer2.default
 });
 
@@ -41613,6 +41636,31 @@ exports.default = function () {
 
   switch (action.type) {
     case _actions.FETCH_CATEGORIES:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+/* 502 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _actions = __webpack_require__(35);
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _actions.FETCH_AREAS:
       return action.payload;
     default:
       return state;

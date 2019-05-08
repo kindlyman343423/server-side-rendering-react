@@ -2,16 +2,15 @@ import React, { Component } from "react";
 import { PrimaryButton, Label } from "../components/Button";
 import Helmet from "../components/Helmet";
 import { connect } from "react-redux";
-import { fetchCategories } from "../actions";
+import { fetchCategories, fetchAreas } from "../actions";
 
 class Home extends Component {
-
   componentDidMount() {
     this.props.dispatch(fetchCategories());
+    this.props.dispatch(fetchAreas());
   }
 
   render() {
-      console.log(this.props.categories)
     return (
       <div>
         <Helmet
@@ -28,22 +27,30 @@ class Home extends Component {
 
         <h2>Categories</h2>
         <ul>
-          {this.props.categories.map((category ,i)=>{
-              return <li key={i}>{category.title}</li>
+          {this.props.categories.map(category => {
+            return <li key={category.id}>{category.title}</li>;
           })}
         </ul>
+        <br />
 
+        <h2>Areas</h2>
+        <ul>
+          {this.props.areas.map((area, i) => {
+            if(i > 10) return;
+            return <li key={area.id}>{area.name}</li>;
+          })}
+        </ul>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { categories: state.categories };
+  return { categories: state.categories, areas: state.areas };
 };
 
 function loadData(store) {
-  return store.dispatch(fetchCategories());
+  return store.dispatch(fetchCategories(), fetchAreas());
 }
 
 export { loadData };
