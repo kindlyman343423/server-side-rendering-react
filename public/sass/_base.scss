@@ -1,0 +1,32 @@
+body,p{
+    font-size: 16px;
+    font-family: $font-family;
+    color:#172B4D;
+    &.noscroll{
+        overflow: hidden!important;
+    }
+}
+h1{
+    font-size: 35px;
+}
+h2{
+    font-size: 29px;
+}
+h3{
+    font-size: 24px;
+}
+h4{
+    font-size: 20px;
+}
+h5,p{
+    font-size: 16px;  
+}
+h6{
+  font-size: 14px;  
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: bold;
+    line-height: 40px;
+    color:#172B4D;
+}

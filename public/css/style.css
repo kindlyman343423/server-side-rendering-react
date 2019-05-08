@@ -1,0 +1,77 @@
+body, p {
+  font-size: 16px;
+  font-family: "system-ui";
+  color: #172B4D; }
+  body.noscroll, p.noscroll {
+    overflow: hidden !important; }
+
+h1 {
+  font-size: 35px; }
+
+h2 {
+  font-size: 29px; }
+
+h3 {
+  font-size: 24px; }
+
+h4 {
+  font-size: 20px; }
+
+h5, p {
+  font-size: 16px; }
+
+h6 {
+  font-size: 14px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  line-height: 40px;
+  color: #172B4D; }
+
+.btn {
+  height: 40px;
+  border-radius: 3px;
+  padding: 0 32px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+  border: 0px; }
+  .btn:focus {
+    outline: 0px; }
+  .btn.primary-btn {
+    background-color: #3366ff;
+    color: #fff; }
+    .btn.primary-btn:hover {
+      background-color: #003399; }
+  .btn.primary-ghost-btn {
+    background-color: #DEEBFF;
+    color: #003399; }
+    .btn.primary-ghost-btn:hover {
+      background-color: #003399;
+      color: #fff; }
+  .btn.success-btn {
+    background-color: #36B37E;
+    color: #fff; }
+    .btn.success-btn:hover {
+      background-color: #006644; }
+  .btn.success-ghost-btn {
+    background-color: #E2FFEE;
+    color: #00875A; }
+    .btn.success-ghost-btn:hover {
+      background-color: #006644;
+      color: #fff; }
+  .btn.disabled-btn {
+    background-color: #EBECF0;
+    color: #C1C7D0; }
+
+.label {
+  height: 16px;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 0 12px;
+  display: inline-block; }
+  .label.success-label {
+    background-color: #36B37E;
+    color: #fff; }
+
+/*# sourceMappingURL=style.css.map */

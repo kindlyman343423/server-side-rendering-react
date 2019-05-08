@@ -1,0 +1,58 @@
+.btn{
+    height: 40px;
+    border-radius: 3px;
+    padding: 0 32px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    border:0px;
+    &:focus{
+        outline:0px;
+    }
+    &.primary-btn{
+        background-color: $primary;
+        color:#fff;
+        &:hover{
+            background-color: $primary-hover;
+        }
+    }
+    &.primary-ghost-btn{
+        background-color: $primary-bg;
+        color: $primary-hover;
+        &:hover{
+            background-color: $primary-hover;;
+            color: #fff;
+        }
+    }
+    &.success-btn{
+        background-color: $success;
+        color:#fff;
+        &:hover{
+            background-color: $success-hover
+        }
+    }
+    &.success-ghost-btn{
+        background-color: $success-bg;
+        color: $success-ghost-text;
+        &:hover{
+            background-color: $success-hover;
+            color:#fff;
+        }
+    }
+    &.disabled-btn{
+        background-color: $disabled;
+        color: $disabled-text-color;
+    }
+}
+
+.label{
+    height:16px;
+    font-size: 10px;
+    font-weight: bold;
+    padding:0 12px;
+    display: inline-block;
+    &.success-label{
+        background-color: $success;
+        color:#fff;
+    }
+}

@@ -6,15 +6,6 @@ import UsersList from './pages/UsersListPage';
 import PropertiesList from './pages/PropertiesList';
 import LoginPage from './pages/LoginPage';
 
-// export default () => {
-//     return (
-//         <div>
-//             <Route exact path="/" component={Home}/>            
-//             <Route exact path="/users" component={UsersList}/>                     
-//         </div>
-//     )
-// }
-
 export default [
     {
         ...App,

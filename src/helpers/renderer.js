@@ -20,10 +20,12 @@ export default (req, store) => {
   );
 
   return `
-    <html>
+    <!DOCTYPE html>
+    <html lang="en">
         <head>
         <body>
             <div id="root">${content}</div>
+            <link rel="stylesheet" href="/css/style.css" />
             <script>
               window.INITIAL_STATE = ${serialize(store.getState())}
             </script>

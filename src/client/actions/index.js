@@ -10,6 +10,7 @@ import CookieConfig from '../../helpers/cookieConfig';
 
 let guest_token = CookieConfig();
 const Cookies = new cookie();
+let base_url = "https://www.basobaas.com/api"
 
 export const fetchUsers = () => async (dispatch, getState, api) =>{
  const users = await api.get('/users');
@@ -28,6 +29,25 @@ export const fetchCurrentUser = () => async (dispatch, getState, api) => {
   type: FETCH_CURRENT_USER,
   payload: user
  });
+}
+
+
+//areas
+export const fetchAreas = () => async (dispatch, getState, api) =>{
+    try{
+        const areas = await axios.get(base_url+'/areas', {
+            headers: {
+            Authorization: `Bearer ${Cookies.get('token') || guest_token}`
+            }
+        });
+        
+        dispatch({
+            type: FETCH_AREAS,
+            payload: areas.data
+        });
+    }catch(err){
+        console.log("Error", Cookies.get('token'))
+    }
 }
 
 export const fetchProperties = () => async (dispatch, getState, api) => {
@@ -50,14 +70,12 @@ export const fetchProperties = () => async (dispatch, getState, api) => {
 }
 
 export const loginUser = (data) => async (dispatch, getState, api) => {
- console.log(data);
- const user = await axios.post('https://www.basobaas.com/api/users/login',data, {
+ const user = await axios.post(base_url+'/users/login',data, {
   headers: {
       Authorization: `Bearer ${Cookies.get('token') || guest_token}`
   }
  });
 
- console.log("token",user.data.data.access_token)
  Cookies.set('token', `${user.data.data.access_token}`);
 
  dispatch({
