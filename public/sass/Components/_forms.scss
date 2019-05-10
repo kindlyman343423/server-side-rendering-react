@@ -1,0 +1,121 @@
+.input{
+    border: 1px solid #e0e0e0;
+    height: 32px;
+    border-radius: 3px;
+    padding: 0 16px;
+    &:focus{
+        outline: 0px;
+    }
+}
+
+.textarea{
+    resize: none;
+    border: 1px solid $border-color;
+    height: 40px;
+    padding: 8px 16px;
+}
+
+.checkbox{
+    display: inline-block;
+    margin-right: 10px;
+    input[type="checkbox"]{
+        display: none;
+        cursor: pointer;
+        & + label{
+            cursor: pointer;
+        }
+        & + label:before{
+            content: '\2714';
+            border: 1px solid #e0e0e0;
+            padding: 0 5px; 
+            border-radius: 3px;
+            color:transparent;
+            margin-right: 6px;
+        }
+        &:checked + label:before {
+            background-color: $primary;
+            color:#fff;
+        }
+    }
+}
+
+.radio-button {
+    margin: 16px 0;
+    display: inline-block;
+    cursor: pointer;
+    input {
+        display: none;
+        cursor: pointer;
+        & + label {
+            line-height: 20px;
+            height: 20px;
+            padding-left: 20px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            &:not(:empty) {
+                padding-left: 20px + 8;
+                margin-right: 10px;
+            }
+            &:before,
+            &:after {
+                content: '';
+                width: 20px;
+                height: 20px;
+                display: block;
+                border-radius: 50%;
+                left: 0;
+                top: 0;
+                position: absolute;
+            }
+            &:before {
+                background: $border-color;
+                transition: background .2s ease, transform .4s cubic-bezier(.175, .885, .32, 2);
+            }
+            &:after {
+                background: #fff;
+                transform: scale(.78);
+                transition: transform .6s cubic-bezier(.175, .885, .32, 1.4);
+            }
+        }
+        &:checked + label {
+            &:before {
+                transform: scale(1.04);
+                background: $primary;
+            }
+            &:after {
+                transform: scale(.4);
+                transition: transform .3s ease;
+            }
+        }
+    }
+    &:hover {
+        input {
+            & + label {
+                &:before {
+                    transform: scale(.92);
+                }
+                &:after {
+                    transform: scale(.74);
+                }
+            }
+            &:checked + label {
+                &:after {
+                    transform: scale(.4);
+                }
+            }
+        }
+    }
+}
+
+.DayPickerInput{
+    input{
+        border: 1px solid #e0e0e0;
+        height: 30px;
+        border-radius: 3px;
+        padding: 0 16px;
+        &:focus{
+            outline: 0px;
+        }
+    }
+}

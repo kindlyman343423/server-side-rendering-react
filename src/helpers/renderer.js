@@ -26,6 +26,8 @@ export default (req, store) => {
         <body>
             <div id="root">${content}</div>
             <link rel="stylesheet" href="/css/style.css" />
+            <link rel="stylesheet" href="/css/remixicon/remixicon.css" />
+            <link rel="stylesheet" href="/css/dayPicker.css" />
             <script>
               window.INITIAL_STATE = ${serialize(store.getState())}
             </script>

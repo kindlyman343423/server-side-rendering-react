@@ -1,0 +1,19 @@
+.list-group{
+    max-width: 400px;
+    .list-group-item{
+        position: relative; 
+        display: block;
+        padding: .75rem 1.25rem;
+        margin-bottom: -1px;
+        background-color: #fff;
+        border: 1px solid rgba(0,0,0,.125);
+        &:first-child{
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+        &:last-child{
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@mixin grid-generator($size) {
+	@for $i from 1 through 12 {
+		.col#{$i}-#{$size}{
+            flex: 0 0 percentage($i / 12);
+            max-width: percentage($i / 12);
+            padding: 0 15px;
+		}
+	}
+}
+
+@mixin gridgenerator($size) {
+	@for $i from 1 through 12 {
+		.col#{$i}{
+            flex: 0 0 percentage($i / 12);
+            max-width: percentage($i / 12);
+            padding: 0 15px;
+		}
+	}
+}

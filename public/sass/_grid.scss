@@ -1,0 +1,16 @@
+@include gridgenerator(hello);
+@media screen and (min-width : 320px){
+    @include grid-generator(xs);
+}
+@media screen and (min-width : 480px){
+    @include grid-generator(sm);
+}
+@media screen and (min-width : 768px){
+    @include grid-generator(md);
+}
+@media screen and (min-width : 992px){
+    @include grid-generator(lg);
+}
+@media screen and (min-width : 1200px){
+    @include grid-generator(xl);
+}

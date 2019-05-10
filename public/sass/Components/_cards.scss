@@ -1,0 +1,91 @@
+.text-card{
+    width:250px;
+    border:1px solid $light-bg;
+    border-radius: 3px;
+    .image-label{
+        height:180px;
+        position: relative;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .label-group{
+            position: absolute;
+            left: 7px;
+            top: 0px;
+            .label{
+                margin-right: 5px;
+            }
+        }
+    }
+    .details{
+        padding: 10px;
+        .title{
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            span{
+                margin-right:5px;
+            }
+        }
+        .price{
+            margin: 5px 0;
+            color: $primary;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .location{
+            font-size:14px;
+            text-transform: uppercase;
+            i{
+                color:#7A869A;
+            }
+            span{
+                position: relative;
+                top: -2px;
+                margin-left: 5px;
+            }
+        }
+    }
+    .features{
+        background-color: $light-bg;
+        padding: 10px;
+        font-size:12px;
+        .flex{
+            display: flex;
+            .bed, .bath, .map, .view{
+                width: 50%;
+                img{
+                    margin-right: 5px;
+                }
+            }
+            .bath{
+                img{
+                    margin-right: 0px;
+                }
+                span{
+                    position: relative;
+                    top: -10px;
+                }
+            }
+        }
+        // ul{
+        //     padding:10px;
+        //     font-size: 12px;
+        //     li{
+        //         display: inline-block;
+        //         img{
+        //             margin-right: 2px;
+        //         }
+        //         &.bath{
+        //             img{
+        //                 position: relative;
+        //                 top: 10px;
+        //             }
+        //         }
+        //     }
+        // }
+    }
+}
