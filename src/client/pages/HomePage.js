@@ -9,12 +9,13 @@ import { PrimaryButton } from "../components/Button";
 import { PrimaryAlert, SuccessAlert, ErrorAlert } from '../components/Alerts';
 import { PrimaryLabel, SecondaryLabel, DangerLabel } from '../components/Labels';
 import {TextCard} from '../components/Card'
-import {InputText, InputNumber, TextArea, CheckBox, RadioButton} from '../components/Forms'
+import {InputText, InputNumber, TextArea, CheckBox, RadioButton, RadioButtonImage, RadioButtonText, CheckBoxIconVertical} from '../components/Forms'
 import {Avatar} from '../components/Avatar'
 import {Tooltips} from '../components/Tooltips'
 import {Spinner} from '../components/Spinner'
 import {ModalButton, Modal} from '../components/Modal'
 import {ListGroup} from '../components/ListGroup'
+import Header from './includes/Header'
 
 class Home extends Component {
   componentDidMount() {
@@ -33,6 +34,8 @@ class Home extends Component {
           chatScriptUrl="https://widget.manychat.com/934957239853993.js"
         />
 
+        <Header />
+
         <h1>Whaat up homies !</h1>
         <PrimaryButton>Primary Button</PrimaryButton>
         <PrimaryLabel>Negotiable</PrimaryLabel>
@@ -41,6 +44,36 @@ class Home extends Component {
         <PrimaryAlert>This is a Primary Alert</PrimaryAlert>
         <SuccessAlert>This is a Primary Alert</SuccessAlert>
         <ErrorAlert>This is a Primary Alert</ErrorAlert>
+
+
+        <RadioButtonImage 
+          name = "type" 
+          value = "Residential"
+          image = '/images/residential.svg'
+        >
+          Residential
+        </RadioButtonImage>
+        
+        <RadioButtonImage 
+          name= "type" 
+          value= "Commercial"
+          image = "/images/commercial.svg"
+        >
+          Commercial
+        </RadioButtonImage>
+
+        <RadioButtonText
+        name= "bedroom" 
+        value= "1"
+        >1</RadioButtonText>
+        <RadioButtonText
+        name= "bedroom" 
+        value= "2"
+        >2</RadioButtonText>
+        <RadioButtonText
+        name= "bedroom" 
+        value= "3"
+        >3</RadioButtonText>
 
         <TextCard 
           img = "https://basobaas.com/api/public/images/2019-05/03/11-1556870507_m.jpg"
@@ -74,6 +107,22 @@ class Home extends Component {
         <RadioButton name="wild-animal" value="lion">Lion</RadioButton>
         <RadioButton name="wild-animal" value="tiger">Tiger</RadioButton>
         <RadioButton name="wild-animal" value="elephant">Elephant</RadioButton>
+
+        <CheckBoxIconVertical
+          name="features"
+          value="garden"
+        >
+        Garden</CheckBoxIconVertical>
+        <CheckBoxIconVertical
+          name="features"
+          value="lawn"
+        >
+        Lawn</CheckBoxIconVertical>
+        <CheckBoxIconVertical
+          name="features"
+          value="garage"
+        >
+        Garden</CheckBoxIconVertical>
 
         <DayPicker />
 

@@ -36,12 +36,101 @@ export class CheckBox extends Component{
     }
 }
 
+export class CheckBoxIconVertical extends Component{
+    render(){
+        return(
+            <div className="checkBox-with-icon-vertical" key={this.props.keyi}>
+                <input 
+                    type="checkbox" 
+                    name={this.props.name} 
+                    id={this.props.value} 
+                    value={this.props.value} 
+                    onChange={this.props.handleFunc} 
+                />
+                <label className="drinkcard-cc" htmlFor={this.props.value}>
+                    {/* <img src={this.props.image} alt={this.props.value} /> */}
+                    <span className="title">
+                        {this.props.value}
+                    </span>
+                </label>
+            </div>
+        )
+    }
+}
+
 export class RadioButton extends Component{
     render(){
         return(
             <div className="radio-button">
                 <input type="radio" name={this.props.name} id={this.props.value} value={this.props.value} />
                 <label htmlFor={this.props.value}>{this.props.children}</label>
+            </div>
+        )
+    }
+}
+
+export class RadioButtonImage extends Component{
+    render(){
+        return(
+            <div className="radio-with-image">
+                <input type="radio" name={this.props.name} id={this.props.value} value={this.props.value} />
+                <label className="drinkcard-cc" htmlFor={this.props.value} style={{backgroundImage:`url(${this.props.image})`}}></label>
+                <span className="title">{this.props.value}</span>
+            </div>
+        )
+    }
+}
+
+export class RadioButtonIconVertical extends Component{
+    render(){
+        return(
+            <div className="radio-with-icon-vertical" key={this.props.keyi}>
+                <input 
+                    type="radio" 
+                    name={this.props.name} 
+                    id={this.props.value} 
+                    value={this.props.value} 
+                    onChange={this.props.handleFunc} 
+                />
+                <label className="drinkcard-cc" htmlFor={this.props.value}>
+                    <img src={this.props.image} alt={this.props.value} />
+                    <span className="title">
+                        {this.props.value}
+                    </span>
+                </label>
+            </div>
+        )
+    }
+}
+
+export class RadioButtonIcon extends Component{
+    render(){
+        return(
+            <div className="radio-with-icon" key={this.props.keyi}>
+                <input 
+                    type="radio" 
+                    name={this.props.name} 
+                    id={this.props.title} 
+                    value={this.props.value}
+                    onChange={this.props.handleFunc}  
+                />
+                <label className="drinkcard-cc" htmlFor={this.props.title}>
+                    <img src={this.props.image} alt={this.props.title} />
+                    <span className="title">
+                        {this.props.title}
+                    </span>
+                </label>
+            </div>
+        )
+    }
+}
+
+export class RadioButtonText extends Component{
+    render(){
+        return(
+            <div className="radio-text">
+                <input type="radio" name={this.props.name} id={this.props.value} value={this.props.value} />
+                <label className="drinkcard-cc" htmlFor={this.props.value}><span>{this.props.children}</span></label>
             </div>
         )
     }
@@ -56,6 +145,22 @@ InputNumber.propTypes = {
 }
 
 CheckBox.propTypes = {
+    name : PropTypes.string.isRequired,
+    value : PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.number.isRequired
+    ])
+}
+
+RadioButton.propTypes = {
+    name : PropTypes.string.isRequired,
+    value : PropTypes.oneOfType([
+        PropTypes.string.isRequired,
+        PropTypes.number.isRequired
+    ])
+}
+
+RadioButtonImage.propTypes = {
     name : PropTypes.string.isRequired,
     value : PropTypes.oneOfType([
         PropTypes.string.isRequired,
