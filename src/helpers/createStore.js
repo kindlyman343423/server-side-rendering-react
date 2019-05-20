@@ -12,7 +12,7 @@ export default (req) =>{
  const axiosInstance = axios.create({
   // baseURL: 'https://www.basobaas.com/api',
   // baseURL: 'https://jsonplaceholder.typicode.com',
-  headers: { Authorization: `Bearer ${(req.headers.cookie.split(';')[2]) ? req.headers.cookie.split(';')[2].split('=')[1] : guest_token}`}
+  headers: { Authorization: `Bearer ${(req.headers.cookie && req.headers.cookie.split(';')[2]) ? req.headers.cookie.split(';')[2].split('=')[1] : guest_token}`}
   
  })
  const store = createStore(reducers, {}, applyMiddleware(thunk.withExtraArgument(axiosInstance)));
