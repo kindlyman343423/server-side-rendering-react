@@ -1,4 +1,4 @@
-import {FETCH_AREAS} from '../actions';
+import {FETCH_AREAS} from '../actions/types';
 
 export default (state = [], action) => {
  switch (action.type) {
