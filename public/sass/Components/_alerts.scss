@@ -1,0 +1,19 @@
+.alert{
+    height: 40px;
+    border-radius: 3px;
+    padding: 0 32px;
+    font-size: 12px;
+    line-height: 40px;
+    &.primary-alert{
+        background-color: $primary-bg;
+        color: $primary-hover;
+    }
+    &.success-alert{
+        background-color: $success-bg;
+        color: $success-text;
+    }
+    &.error-alert{
+        background-color: $warning-bg;
+        color: $danger-hover;
+    }
+}

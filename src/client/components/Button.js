@@ -8,18 +8,10 @@ export class PrimaryButton extends Component{
     }
 }
 
-export class SuccessButton extends Component{
+export class SecondaryButton extends Component{
     render(){
         return(
             <button className="btn secondary-btn">{this.props.children}</button>
-        )
-    }
-}
-
-export class Label extends Component{
-    render(){
-        return(
-            <span className={"label "+this.props.classLabel}>{this.props.children}</span>
         )
     }
 }

@@ -1,5 +1,19 @@
 @import 'variables.scss';
 @import 'base.scss';
+@import 'mixins.scss';
+@import 'grid.scss';
 
 //Components
 @import 'Components/button.scss';
+@import 'Components/alerts';
+@import 'Components/labels';
+@import 'Components/cards';
+@import 'Components/forms';
+@import 'Components/avatar';
+@import 'Components/tooltips';
+@import 'Components/spinner';
+@import 'Components/modal';
+@import 'Components/listGroup';
+
+//includes
+@import 'header.scss';

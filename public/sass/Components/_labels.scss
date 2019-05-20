@@ -1,0 +1,21 @@
+.label{
+    height:16px;
+    font-size: 10px;
+    font-weight: bold;
+    padding:0 12px;
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    &.primary-label{
+        background-color: $label-primary-color;
+        color: #fff;
+    }
+    &.secondary-label{
+        background-color: $success;
+        color:#fff;
+    }
+    &.danger-label{
+        background-color: $danger;
+        color:#fff;
+    }
+}

@@ -6,6 +6,8 @@
     font-weight: bold;
     font-size: 12px;
     border:0px;
+    cursor: pointer;
+    transition: all ease-in-out 0.1s;
     &:focus{
         outline:0px;
     }
@@ -14,13 +16,15 @@
         color:#fff;
         &:hover{
             background-color: $primary-hover;
+            transition: all ease-in-out 0.1s;
         }
     }
     &.primary-ghost-btn{
         background-color: $primary-bg;
         color: $primary-hover;
         &:hover{
-            background-color: $primary-hover;;
+            background-color: $primary-hover;
+            transition: all ease-in-out 0.1s;
             color: #fff;
         }
     }
@@ -28,31 +32,26 @@
         background-color: $success;
         color:#fff;
         &:hover{
+            transition: all ease-in-out 0.1s;
             background-color: $success-hover
         }
     }
     &.success-ghost-btn{
         background-color: $success-bg;
-        color: $success-ghost-text;
+        color: $success-text;
         &:hover{
             background-color: $success-hover;
             color:#fff;
+            transition: all ease-in-out 0.1s;
         }
     }
     &.disabled-btn{
         background-color: $disabled;
-        color: $disabled-text-color;
+        color: $disabled-text;
     }
-}
-
-.label{
-    height:16px;
-    font-size: 10px;
-    font-weight: bold;
-    padding:0 12px;
-    display: inline-block;
-    &.success-label{
-        background-color: $success;
-        color:#fff;
+    &.clear-btn{
+        background-color: $white;
+        border:1px solid $border-color;
+        color: $text;
     }
 }

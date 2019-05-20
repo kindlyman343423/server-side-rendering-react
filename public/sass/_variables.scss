@@ -4,6 +4,12 @@ $regular:normal;
 $bold:bold;
 $font-family : 'system-ui';
 
+// box-shadow
+$box-shadow: 0 0 0 0.1rem rgba(0,123,255,.25);
+$box-black: 0 2px 4px rgba(0, 0, 0, 0.1);
+$box-hover: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(26, 26, 29, 0.08) !important;
+$card-hover: 0 6px 12px 0 rgba(0,0,0,.15);
+
 // colors
 $white: #fff;
 $border: #e4e4e4;
@@ -14,9 +20,10 @@ $border-color:#e0e0e0;
 $border-input: #80bdff;
 $link-color: #1890ff;
 $link-hover: #0d68bd;
-$success-ghost-text: #00875A;
-$disabled-text-color: #C1C7D0;
+$success-text: #00875A;
+$disabled-text: #C1C7D0;
 
+$label-primary-color: #253858;
 $primary: #3366ff;
 $primary-hover: #003399;
 $primary-bg: #DEEBFF;
