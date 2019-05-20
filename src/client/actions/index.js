@@ -1,9 +1,12 @@
-export const FETCH_USERS = "fetch_users";
-export const FETCH_PROPERTIES = "fetch_properties";
-export const FETCH_CATEGORIES = "fetch_categories";
-export const FETCH_AREAS = "fetch_areas";
-export const FETCH_CURRENT_USER = "fetch_current_user";
-export const LOGIN_USER = "login_user";
+import {
+  FETCH_AREAS,
+  FETCH_CATEGORIES,
+  FETCH_CURRENT_USER,
+  FETCH_PROPERTIES,
+  FETCH_PROPERTIES_HOT,
+  FETCH_USERS,
+  LOGIN_USER
+} from "./types";
 
 import axios from "axios";
 
@@ -67,6 +70,7 @@ export const fetchAreas = () => async (dispatch, getState, api) => {
   }
 };
 
+//Properties
 export const fetchProperties = () => async (dispatch, getState, api) => {
   try {
     const properties = await axios.get(base_url + "/properties", {
@@ -79,6 +83,25 @@ export const fetchProperties = () => async (dispatch, getState, api) => {
 
     dispatch({
       type: FETCH_PROPERTIES,
+      payload: properties.data
+    });
+  } catch (err) {
+    console.log("Errpr", err);
+  }
+};
+
+export const fetchPropertiesHot = () => async (dispatch, getState, api) => {
+  try {
+    const properties = await axios.get(base_url + "/properties-hot", {
+      headers: {
+        Authorization: `Bearer ${Cookies.get("token") || guest_token}`
+      }
+    });
+
+    console.log(properties.data);
+
+    dispatch({
+      type: FETCH_PROPERTIES_HOT,
       payload: properties.data
     });
   } catch (err) {

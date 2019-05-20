@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Helmet from "../components/Helmet";
 import { connect } from "react-redux";
-import { fetchCategories, fetchAreas } from "../actions";
 import DayPicker from 'react-day-picker/DayPickerInput';
 
 //includes components
@@ -16,14 +15,17 @@ import {Spinner} from '../components/Spinner'
 import {ModalButton, Modal} from '../components/Modal'
 import {ListGroup} from '../components/ListGroup'
 import Header from './includes/Header'
+import { fetchCategories, fetchAreas, fetchPropertiesHot } from "../actions";
 
 class Home extends Component {
   componentDidMount() {
     this.props.dispatch(fetchCategories());
     this.props.dispatch(fetchAreas());
+    this.props.dispatch(fetchPropertiesHot());
   }
 
   render() {
+    console.log(this.props.hotProperties);
     return (
       <div>
         <Helmet
@@ -161,8 +163,16 @@ class Home extends Component {
         <h2>Areas</h2>
         <ul>
           {this.props.areas.map((area, i) => {
-            if(i > 10) return;
+            if (i > 10) return;
             return <li key={area.id}>{area.name}</li>;
+          })}
+        </ul>
+        <br />
+
+        <h2>Hot Properties</h2>
+        <ul>
+          {this.props.hotProperties.map((property, i) => {
+            return <li key={property.id}>{property.title}</li>;
           })}
         </ul>
       </div>
@@ -171,11 +181,17 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-  return { categories: state.categories, areas: state.areas };
+  return {
+    categories: state.categories,
+    areas: state.areas,
+    hotProperties: state.properties
+  };
 };
 
 function loadData(store) {
-  return store.dispatch(fetchCategories(), fetchAreas());
+  store.dispatch(fetchAreas());
+  store.dispatch(fetchCategories());
+  return store.dispatch(fetchPropertiesHot());
 }
 
 export { loadData };
