@@ -41370,7 +41370,7 @@ Avatar.propTypes = {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.Tooltips = undefined;
+exports.NewTooltips = exports.Tooltips = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -41416,6 +41416,33 @@ var Tooltips = exports.Tooltips = function (_Component) {
     }]);
 
     return Tooltips;
+}(_react.Component);
+
+var NewTooltips = exports.NewTooltips = function (_Component2) {
+    _inherits(NewTooltips, _Component2);
+
+    function NewTooltips() {
+        _classCallCheck(this, NewTooltips);
+
+        return _possibleConstructorReturn(this, (NewTooltips.__proto__ || Object.getPrototypeOf(NewTooltips)).apply(this, arguments));
+    }
+
+    _createClass(NewTooltips, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "tooltip-new" },
+                _react2.default.createElement(
+                    "a",
+                    { href: "#", "class": "tooltip tooltip-top", "data-tooltip": this.props.children },
+                    this.props.text
+                )
+            );
+        }
+    }]);
+
+    return NewTooltips;
 }(_react.Component);
 
 /***/ }),
