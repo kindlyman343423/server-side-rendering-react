@@ -6,6 +6,8 @@
     display: inline-block;
     font-weight: bold;
     text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
     &.primary-label{
         background-color: $label-primary-color;
         color: #fff;

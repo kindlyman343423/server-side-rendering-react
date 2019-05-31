@@ -2,3 +2,16 @@
     height: 50px;
     width: 50px;
 }
+
+.name-avatar{
+    position: relative;
+    span{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);    
+        color: #fff;
+        font-weight: bold;
+        font-size: 22px;
+    }
+}
